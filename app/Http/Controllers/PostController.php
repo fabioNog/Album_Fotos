@@ -37,11 +37,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $path = $request->file('arquivo')->store('imagens','public');
         $post = new Post();
         $post->email = $request->email;
         $post->mensagem = $request->mensagem;
-        $post->arquivo = '';
+        $post->arquivo = $path;
         $post->save();
+        return redirect('/');
     }
 
     /**
