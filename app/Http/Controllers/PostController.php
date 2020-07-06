@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Filesystem\FilesystemAdapter;
 
 
 use App\Post;
@@ -57,6 +58,16 @@ class PostController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function dowload($id)
+    {
+        $post = Post::find($id);
+        if(isset($post)){
+            return Storage::disk('public')->download($post->arquivo);
+            return redirect('/');
+        }
+        return redirect('/');
     }
 
     /**

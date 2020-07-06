@@ -82,7 +82,7 @@
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                           <!--button type="button" class="btn btn-sm btn-outline-secondary">Download</button-->
-                          <a type="button" class="btn btn-sm btn-outline-secondary" href="#">Download</a>
+                        <a type="button" class="btn btn-sm btn-outline-secondary" href="/dowload/{{$p->id}}">Download</a>
                         <form method="POST" action="/{{$p->id}}">
                             @csrf
                             <input type="hidden" name="_method" value="delete">
